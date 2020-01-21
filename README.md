@@ -3,6 +3,10 @@ md5 cli：md5命令行
 
 rsmd5 0.1.0
 
+Install:
+
+    cargo install rsmd5
+
 USAGE:
 
     rsmd5 [OPTIONS] --input <input>
