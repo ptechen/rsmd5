@@ -1,4 +1,4 @@
-# md5 command line tool
+# Md5 Command Line Tool
 
 [![Version info](https://img.shields.io/crates/v/rsmd5.svg)](https://crates.io/crates/rsmd5)
 
