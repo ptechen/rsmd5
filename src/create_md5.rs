@@ -7,7 +7,7 @@ mod tests {
         let opt = create_md5::create_md5::Opt{
             input: PathBuf::from("src/main.rs"),
             output: "l".to_string(),
-            t: "1".to_string(),
+            t: "str".to_string(),
         };
         let res = create_md5::create_md5::create_md5(opt).unwrap();
         return res
