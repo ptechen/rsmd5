@@ -3,7 +3,6 @@ mod tests {
     use std::path::PathBuf;
     use crate::create_md5;
     fn create_md5_test() -> String {
-
         let opt = create_md5::create_md5::Opt{
             input: PathBuf::from("src/main.rs"),
             output: "l".to_string(),
@@ -26,7 +25,7 @@ pub mod create_md5 {
     use std::path::PathBuf;
     use failure::ResultExt;
     use exitfailure::ExitFailure;
-
+    use quicli::prelude::read_file;
     #[derive(StructOpt, Debug)]
     pub struct Opt {
         /// Input string or file path
@@ -44,12 +43,13 @@ pub mod create_md5 {
 
     pub fn create_md5(opt: Opt) -> Result<String, ExitFailure> {
         let mut val:String;
-        if opt.t == "str" {
+        if &opt.t == "str" {
             let input = opt.input.to_str().unwrap();
             let digest = md5::compute(input);
             val = format!("{:?}", digest);
-        } else if opt.t == "file" {
-            let result = std::fs::read_to_string(opt.input).with_context(|err| format!("could not read file `{:?}`", err))?;
+        } else if &opt.t == "file" {
+            let result = read_file(&opt.input)
+                .with_context(|_| format!("could not read file `{:?}`", &opt.input))?;
             let digest = md5::compute(result);
             val = format!("{:?}", digest);
         } else {
