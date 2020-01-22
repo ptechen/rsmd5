@@ -6,7 +6,8 @@ edition = "2018"
 homepage = "https://github.com/ptechen"
 documentation = "https://github.com/ptechen/rsmd5/blob/master/README.md"
 repository = "https://github.com/ptechen/rsmd5.git"
-description = "Command line tool to encrypt and output md5 strings or files\n\r\t对字符串或文件md5加密并输出的命令行工具"
+description = '''Command line tool to encrypt and output md5 strings or files
+对字符串或文件md5加密并输出的命令行工具'''
 license-file = "license"
 readme = "README.md"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
