@@ -1,7 +1,7 @@
 # md5
 md5 cli：md5命令行
 
-[![Version info](https://img.shields.io/crates/v/rsmd5.svg)](https://crates.io/crates/rdmd5)
+[![Version info](https://img.shields.io/crates/v/rsmd5.svg)](https://crates.io/crates/rsmd5)
 
 Install:
 
