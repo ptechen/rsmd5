@@ -1,7 +1,8 @@
 # md5
 md5 cli：md5命令行
 
-rsmd5 0.1.0
+
+[!(https://img.shields.io/badge/crates.io-v0.1.1-orange.svg?longCache=true)]
 
 Install:
 
