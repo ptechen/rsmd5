@@ -505,7 +505,7 @@ dependencies = [
 
 [[package]]
 name = "rsmd5"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "convert 0.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "digest 0.8.1 (registry+https://github.com/rust-lang/crates.io-index)",

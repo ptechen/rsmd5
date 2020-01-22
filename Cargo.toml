@@ -1,6 +1,6 @@
 [package]
 name = "rsmd5"
-version = "0.1.1"
+version = "0.1.2"
 authors = ["petechen <ptechen@github.com>"]
 edition = "2018"
 description = "Command line tool to encrypt and output md5 strings or files\n对字符串或文件md5加密并输出的命令行工具"

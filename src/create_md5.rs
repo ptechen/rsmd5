@@ -33,26 +33,28 @@ pub mod create_md5 {
         #[structopt(short, long, parse(from_os_str))]
         pub input: PathBuf,
 
-        /// Input-type string=1, file_path=2
-        #[structopt(short, long, default_value = "1")]
+        /// Input-type t = (str or file)
+        #[structopt(short, long, default_value = "str")]
         pub t: String,
 
-        /// Output uppercase or lowercase, u or l
+        /// Output uppercase or lowercase,  o = (u or l)
         #[structopt(short, long, default_value = "l")]
         pub output: String,
     }
 
     pub fn create_md5(opt: Opt) -> Result<String, ExitFailure> {
         let mut val:String;
-        if opt.t == "1" {
+        if opt.t == "str" {
             let input = opt.input.to_str().unwrap();
             let digest = md5::compute(input);
             val = format!("{:?}", digest);
-        } else {
+        } else if opt.t == "file" {
             let result = std::fs::read_to_string(opt.input).with_context(|err| format!("could not read file `{:?}`", err))?;
             let digest = md5::compute(result);
             val = format!("{:?}", digest);
-        }
+        } else {
+            panic!("请输入正确的 -t 参数")
+        };
         if &opt.output == "u" {
             val = val.to_uppercase()
         }

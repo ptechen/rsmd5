@@ -19,5 +19,5 @@ FLAGS:
 OPTIONS:
 
     -i, --input <input>      Input string or file path
-    -o, --output <output>    Output uppercase or lowercase, u or l [default: l]
-    -t, --t <t>              Input-type string=1, file_path=2 [default: 1]
+    -o, --output <output>    Output uppercase or lowercase,  o = (u or l) [default: l]
+    -t, --t <t>              Input-type t = (str or file) [default: str]
