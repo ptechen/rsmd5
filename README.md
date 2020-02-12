@@ -2,6 +2,9 @@
 
 [![Version info](https://img.shields.io/crates/v/rsmd5.svg)](https://crates.io/crates/rsmd5)
 
+Command line tool to encrypt and output md5 strings or files
+
+对字符串或文件md5加密并输出的命令行工具
 Install:
 
     cargo install rsmd5
