@@ -14,7 +14,7 @@ mod tests {
 
     #[test]
     fn it_works() {
-        assert_eq!(create_md5_test(), "b29827ecc0ced7dc011014868259a780".to_string());
+        assert_eq!(create_md5_test(), "93514890189f0ff68908df8a6fc29c7d".to_string());
     }
 }
 
@@ -25,6 +25,8 @@ pub mod create_md5 {
     use std::io::{BufReader, Read};
     use std::fs::File;
     use failure::{Error, ResultExt, ensure};
+    use crypto::md5::Md5;
+    use crypto::digest::Digest;
 
     #[derive(StructOpt, Debug)]
     pub struct Opt {
@@ -42,23 +44,24 @@ pub mod create_md5 {
     }
 
     pub fn create_md5(opt: Opt) -> Result<String, ExitFailure> {
-        let mut val:String;
+        let mut digest:String;
+        let mut md5 = Md5::new();
         if &opt.t == "str" {
             let input = opt.input.to_str().unwrap();
-            let digest = md5::compute(input);
-            val = format!("{:?}", digest);
+            md5.input_str(input);
+            digest = md5.result_str();
         } else if &opt.t == "file" {
             let result = read_file(&opt.input)
                 .with_context(|_| format!("could not read file `{:?}`", &opt.input))?;
-            let digest = md5::compute(result);
-            val = format!("{:?}", digest);
+            md5.input(&result);
+            digest = md5.result_str();
         } else {
             panic!("请输入正确的 -t 参数")
         };
         if &opt.output == "u" {
-            val = val.to_uppercase()
+            digest = digest.to_uppercase()
         }
-        Ok(val)
+        Ok(digest)
     }
 
     pub fn read_file<P: AsRef<Path>>(path: P) -> Result<Vec<u8>, Error> {
