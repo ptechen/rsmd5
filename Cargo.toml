@@ -13,8 +13,8 @@ readme = "README.md"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-structopt = "0.3.8"
-failure = "0.1.6"
-serde_json = "1.0.44"
+structopt = "0.3.14"
+failure = "0.1.7"
+serde_json = "1.0.51"
 rust-crypto = "0.2.36"
 exitfailure = "0.5.1"
