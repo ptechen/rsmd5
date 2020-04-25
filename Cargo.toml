@@ -15,6 +15,6 @@ readme = "README.md"
 [dependencies]
 structopt = "0.3.8"
 failure = "0.1.6"
-exitfailure = "0.5.1"
 serde_json = "1.0.44"
 rust-crypto = "0.2.36"
+exitfailure = "0.5.1"
